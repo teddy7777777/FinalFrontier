@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using KSPDev.GUIUtils;
 
 namespace Nereid
 {
@@ -8,6 +9,16 @@ namespace Nereid
    {
       public class MissionSummaryWindow : PositionableWindow
       {
+            #region Localizable UI strings
+
+            static readonly Message CloseButtonText = new Message("#FF_Button_Close", "Close");
+            static readonly Message ShowSummaryText = new Message("#FF_MissionSummary_ShowSummary", "show summary");
+            static readonly Message NoNewRibbonsText = new Message("#FF_MissionSummary_NoNewRibbons", "no new ribbons");
+            static readonly Message NothingHappenedText = new Message("#FF_MissionSummary_NothingHappened", "nothing happened");
+            static readonly Message<String, String> RibbonTooltipText = new Message<String, String>("#FF_MissionSummary_RibbonTooltip", "<<1>>\n<<2>>");
+            
+            #endregion
+
          public const int WIDTH = 300;
          public const int HEIGHT = 300;
 
@@ -51,9 +62,9 @@ namespace Nereid
             DrawSummary();
             GUILayout.FlexibleSpace();
             GUILayout.BeginHorizontal();
-            config.SetMissionSummaryEnabled(GUILayout.Toggle(config.IsMissionSummaryEnabled(), "show summary", FFStyles.STYLE_TOGGLE));
+            config.SetMissionSummaryEnabled(GUILayout.Toggle(config.IsMissionSummaryEnabled(), ShowSummaryText, FFStyles.STYLE_TOGGLE));
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button("Close", FFStyles.STYLE_BUTTON))
+            if (GUILayout.Button(CloseButtonText, FFStyles.STYLE_BUTTON))
             {
                Event.current.Use();
                missionSummary.Clear();
@@ -80,7 +91,7 @@ namespace Nereid
                   GUILayout.Label(s.kerbal.name, STYLE_NAME);
                   if (s.newRibbons.Count == 0)
                   {
-                     GUILayout.Label("   no new ribbons", STYLE_TEXT);
+                     GUILayout.Label(NoNewRibbonsText, STYLE_TEXT);
                   }
                   else
                   {
@@ -92,7 +103,7 @@ namespace Nereid
                         {
                            GUILayout.BeginHorizontal(STYLE_LINE);
                         }
-                        String tooltip = ribbon.GetName() + "\n" + ribbon.GetDescription();
+                        String tooltip = RibbonTooltipText.Format(ribbon.GetName(), ribbon.GetDescription());
                         GUILayout.Button(new GUIContent(ribbon.GetTexture(), tooltip), FFStyles.STYLE_RIBBON);
                         n++;
                         if (n % RIBBONS_PER_LINE == 0) GUILayout.EndHorizontal();
@@ -106,7 +117,7 @@ namespace Nereid
             }
             else
             {
-               GUILayout.Label("nothing happened", STYLE_TEXT);
+               GUILayout.Label(NothingHappenedText, STYLE_TEXT);
             }
             GUILayout.FlexibleSpace();
             // filler

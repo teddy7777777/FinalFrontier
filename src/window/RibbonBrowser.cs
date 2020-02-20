@@ -10,15 +10,16 @@ namespace Nereid
       class RibbonBrowser : AbstractWindow
       {
             #region Localizable UI strings
-            static readonly Message EnableAllButtonText = new Message("#FF_RibbonBrowser_Enable_all", "Enable all");
-            static readonly Message CloseButtonText = new Message("#FF_RibbonBrowser_Close", "Close");
-            static readonly Message SearchText = new Message("#FF_RibbonBrowser_Search", "Search");
-            static readonly Message RibbonsText = new Message("#FF_RibbonBrowser_Ribbons", "Ribbons");
-            static readonly Message NoneMatchText = new Message("#FF_RibbonBrowser_None", "NONE");
-            static readonly Message NoRibbonsFoundText = new Message("#FF_RibbonBrowser_No_ribbons_found", "no ribbons found");
 
-            static readonly Message<String, String> RibbonDescriptionText = new Message<String, String>("#FF_RibbonBrowser_Ribbon_description", "<<1>>: <<2>>");
-            static readonly Message<int, int> RibbonsCountText = new Message<int, int>("#FF_RibbonBrowser_Ribbons_count", "<<1>> ribbons in total (<<2>> custom ribbons)");
+            static readonly Message EnableAllButtonText = new Message("#FF_RibbonBrowser_EnableAll", "Enable all");
+            static readonly Message CloseButtonText = new Message("#FF_Button_Close", "Close");
+            static readonly Message SearchText = new Message("#FF_RibbonBrowser_Search", "Search");
+            static readonly Message TitleText = new Message("#FF_RibbonBrowser_Title", "Ribbons");
+            static readonly Message NoneMatchText = new Message("#FF_RibbonBrowser_None", "NONE");
+            static readonly Message NoRibbonsFoundText = new Message("#FF_RibbonBrowser_NoRibbonsFound", "no ribbons found");
+            static readonly Message<String, String> RibbonDescriptionText = new Message<String, String>("#FF_RibbonBrowser_RibbonDescription", "<<1>>: <<2>>");
+            static readonly Message<int, int> RibbonsCountText = new Message<int, int>("#FF_RibbonBrowser_RibbonsCount", "<<1>> ribbons in total (<<2>> custom ribbons)");
+            
             #endregion
 
             private Vector2 scrollPosition = Vector2.zero;
@@ -30,7 +31,7 @@ namespace Nereid
 
 
          public RibbonBrowser()
-            : base(Constants.WINDOW_ID_RIBBONBROWSER, RibbonsText)
+            : base(Constants.WINDOW_ID_RIBBONBROWSER, TitleText)
          {
 
 
