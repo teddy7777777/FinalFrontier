@@ -1,0 +1,34 @@
+{
+  "JSON_SCHEMA_VERSION": "1.1",
+
+  "PACKAGE_NAME": "FinalFrontier",
+  "RELEASE_MOD_FOLDER" : "Nereid/{PACKAGE_NAME}",
+
+  "PROJECT_ROOT": "../",
+  "SOURCE": "",
+
+  "SHELL_COMPILE_BINARY_SCRIPT" : "make_binary.cmd",
+
+  "RELEASE_NAME_FREE_FORMAT" : "{PACKAGE_NAME}_v{0}.{1}.{2}-{3}",
+
+  "STRUCTURE" : {
+    "" : [
+      "/Ribbons",
+      "/Lang",
+      "/LICENSE.txt",
+      "/{PACKAGE_NAME}.version",
+      "/cfg/TextureCompression.cfg"
+    ],
+    "Plugins" : [
+      "{COMPILED_BINARY}",
+      "/Binaries/*",
+      "-*.xml"
+    ],
+    "Source" : [
+      "/src/*"
+    ],
+    "Resource" : [
+      "/Resource/*"
+    ]
+  }
+}

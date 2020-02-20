@@ -232,6 +232,9 @@ $RECYCLE.BIN/
 
 # Workspace file
 Contribution/
-Resource/
+#Resource/
 Screenshots/
-FinalFrontier.version
+#FinalFrontier.version
+
+.vs/
+FinalFrontier*.zip
