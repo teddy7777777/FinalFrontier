@@ -6,7 +6,8 @@
          overridden via "FinalFrontier.csproj.user". This project file should
          not be updated and committed except by the upstream developer.
     -->
-    <KSPDIR Condition="'$(KSPDIR)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program</KSPDIR>
+	<!-- <KSPDIR Condition="'$(KSPDIR)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program</KSPDIR> -->
+    <KSPDIR Condition="'$(KSPDIR)' == ''">C:\_HOME\Games\Kerbal Space Program</KSPDIR>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -22,7 +23,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
+    <DebugType>full</DebugType> 
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -31,13 +32,16 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>portable</DebugType>
+    <DebugType>full</DebugType> 
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +102,9 @@
     <Folder Include="Ribbons\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Lang" />
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +142,13 @@
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>$(KSPDIR)\KSP_x64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(KSPDIR)\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="KSPDev_Utils.2.0">
+      <HintPath>Binaries\KSPDev_Utils.2.0.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
