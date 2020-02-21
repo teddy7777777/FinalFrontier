@@ -16,6 +16,7 @@
       "/Ribbons",
       "/Lang",
       "/LICENSE.txt",
+      "/README.md",
       "/{PACKAGE_NAME}.version",
       "/cfg/TextureCompression.cfg"
     ],
