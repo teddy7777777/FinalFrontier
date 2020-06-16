@@ -3,15 +3,15 @@
     "DOWNLOAD": "http://spacedock.info/mod/580/Final%20Frontier", 
     "KSP_VERSION": {
         "MAJOR": 1, 
-        "MINOR": 8, 
+        "MINOR": 9, 
         "PATCH": 1
     }, 
     "NAME": "Final Frontier", 
     "URL": "http://ksp-avc.cybutek.net/version.php?id=59", 
     "VERSION": {
-        "BUILD": 3479, 
+        "BUILD": 3480, 
         "MAJOR": 1, 
-        "MINOR": 8, 
+        "MINOR": 9, 
         "PATCH": 1
     }
 }
