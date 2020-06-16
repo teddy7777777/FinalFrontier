@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using KSPDev.GUIUtils;
 
 namespace Nereid
 {
@@ -8,6 +9,12 @@ namespace Nereid
    {
       class CodeBrowser : AbstractWindow
       {
+            #region Localizable UI strings
+
+            static readonly Message CloseButtonText = new Message("#FF_Button_Close", "Close");
+            static readonly Message TitleText = new Message("#FF_CodeBrowser_Title", "Ribbon Codes");
+            
+            #endregion
 
          private Vector2 scrollPosition = Vector2.zero;
 
@@ -21,7 +28,7 @@ namespace Nereid
 
 
          public CodeBrowser()
-            : base(Constants.WINDOW_ID_CODEBROWSER, "Ribbon Codes")
+            : base(Constants.WINDOW_ID_CODEBROWSER, TitleText)
          {
             STYLE_CODE.stretchWidth = false;
             STYLE_CODE.fixedWidth = 100;
@@ -51,7 +58,7 @@ namespace Nereid
             GUILayout.BeginVertical();
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace(); 
-            if (GUILayout.Button("Close", FFStyles.STYLE_BUTTON)) SetVisible(false);
+            if (GUILayout.Button(CloseButtonText, FFStyles.STYLE_BUTTON)) SetVisible(false);
             GUILayout.EndHorizontal();
             scrollPosition = GUILayout.BeginScrollView(scrollPosition, FFStyles.STYLE_SCROLLVIEW, GUILayout.Height(HEIGHT));
             GUILayout.BeginVertical();
